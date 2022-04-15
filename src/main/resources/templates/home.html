@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CORONA VIRUS 2019 STATISTIC</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 </head>
+
 <body>
-    <h1>Corona Virus 2019 TEST</h1>
+
+<p th:text="${testName}"></p>
+
+<table>
+    <tr>
+        <th>State</th>
+        <th>Country</th>
+        <th>Total cases reporetd</th>
+    </tr>
+    <tr th:each="locationStat : ${locationStatistics}">
+        <td th:text="${locationStat.state}"></td>
+        <td th:text="${locationStat.country}"></td>
+        <td th:text="${locationStat.latestTotalCase}">0</td>
+    </tr>
+</table>
+
 </body>
+
 </html>
